@@ -8,20 +8,22 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import com.riachuelo.house.constants.Constants;
 import com.riachuelo.house.models.CommissionSales;
 import com.riachuelo.house.utils.Util;
 
 @Service
 public class CommissionSalesService {
 	
+	@Value("${app.house.file.sale.path}")
+    private String path;
+	
 	public List<CommissionSales> read() {
 		
 		List<CommissionSales> list = new ArrayList<>();
 		
-		try (BufferedReader br = new BufferedReader(new FileReader(Constants.PATH))){
+		try (BufferedReader br = new BufferedReader(new FileReader(path))){
 			
 			String line = br.readLine();
 			line = br.readLine();
@@ -48,13 +50,10 @@ public class CommissionSalesService {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (NumberFormatException| ParseException e) {
+			// Create a process to write a file trough a list
 			e.printStackTrace();
 		}
-		
-		for (CommissionSales sc : list) {
-			System.out.println(sc);
-		}
-		
+	
 		return list;
 		
 	}
