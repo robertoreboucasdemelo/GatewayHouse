@@ -10,6 +10,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import com.riachuelo.house.constants.Constants;
+import com.riachuelo.house.exceptions.ResourceNotFoundException;
 import com.riachuelo.house.models.CommissionSales;
 import com.riachuelo.house.utils.Util;
 
@@ -46,9 +49,9 @@ public class CommissionSalesService {
 				line = br.readLine();
 			}
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			throw new ResourceNotFoundException(Constants.FILE_NOT_FOUND);
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new ResourceNotFoundException(Constants.IO_ERROR);
 		} catch (NumberFormatException| ParseException e) {
 			// Create a process to write a file trough a list
 			e.printStackTrace();
