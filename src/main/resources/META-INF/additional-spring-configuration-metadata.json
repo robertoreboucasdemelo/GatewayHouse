@@ -1,5 +1,12 @@
-{"properties": [{
-  "name": "app.house.file.sale.path",
-  "type": "java.lang.String",
-  "description": "A description for 'app.house.file.sale.path'"
-}]}
+{"properties": [
+  {
+    "name": "app.house.file.sale.path",
+    "type": "java.lang.String",
+    "description": "A description for 'app.house.file.sale.path'"
+  },
+  {
+    "name": "app.house.file.goal.path",
+    "type": "java.lang.String",
+    "description": "A description for 'app.house.file.goal.path'"
+  }
+]}

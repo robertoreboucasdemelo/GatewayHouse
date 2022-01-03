@@ -91,8 +91,7 @@ public class CommissionSales implements Serializable {
 		}
 		
 		public CommissionSales build() {
-			CommissionSales commissionSales = new CommissionSales(this);
-			return commissionSales;
+			return new CommissionSales(this);
 		}
 	}
 	
