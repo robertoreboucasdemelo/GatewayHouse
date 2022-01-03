@@ -17,7 +17,7 @@ import com.riachuelo.house.utils.Util;
 @Service
 public class CommissionSalesService {
 	
-	public void read() {
+	public List<CommissionSales> read() {
 		
 		List<CommissionSales> list = new ArrayList<>();
 		
@@ -47,15 +47,15 @@ public class CommissionSalesService {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
+		} catch (NumberFormatException| ParseException e) {
 			e.printStackTrace();
 		}
 		
 		for (CommissionSales sc : list) {
 			System.out.println(sc);
 		}
+		
+		return list;
 		
 	}
 

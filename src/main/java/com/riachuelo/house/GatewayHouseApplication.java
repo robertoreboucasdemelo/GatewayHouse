@@ -10,9 +10,6 @@ public class GatewayHouseApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayHouseApplication.class, args);
-		
-		CommissionSalesService cs = new CommissionSalesService();
-		cs.read();
 	}
 
 }
