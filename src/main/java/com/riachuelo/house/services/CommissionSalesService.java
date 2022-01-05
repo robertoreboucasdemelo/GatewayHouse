@@ -11,6 +11,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.riachuelo.house.components.Inconsistency;
+import com.riachuelo.house.components.ItemError;
 import com.riachuelo.house.constants.Constants;
 import com.riachuelo.house.exceptions.ResourceNotFoundException;
 import com.riachuelo.house.models.CommissionSales;
@@ -22,7 +24,7 @@ public class CommissionSalesService {
 	@Value("${app.house.file.sale.path}")
     private String path;
 	
-	public List<CommissionSales> read() {
+	public List<CommissionSales> read(Inconsistency inconsistency) {
 		
 		List<CommissionSales> list = new ArrayList<>();
 		
@@ -56,6 +58,18 @@ public class CommissionSalesService {
 			// Create a process to write a file trough a list
 			e.printStackTrace();
 		}
+		
+		ItemError error = new ItemError();		
+		error.setId(1);
+		error.setDescription("Erro 1");
+		
+		inconsistency.addInconsistency(error);
+		
+		ItemError error2 = new ItemError();		
+		error2.setId(2);
+		error2.setDescription("Erro 2");
+		
+		inconsistency.addInconsistency(error2);
 	
 		return list;
 		
