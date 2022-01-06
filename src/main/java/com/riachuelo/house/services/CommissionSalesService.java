@@ -8,6 +8,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -21,10 +23,14 @@ import com.riachuelo.house.utils.Util;
 @Service
 public class CommissionSalesService {
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(CommissionSalesService.class);
+	
 	@Value("${app.house.file.sale.path}")
     private String path;
 	
 	public List<CommissionSales> read(Inconsistency inconsistency) {
+		
+		LOGGER.info(Constants.STEP_READER_SALES);
 		
 		List<CommissionSales> list = new ArrayList<>();
 		

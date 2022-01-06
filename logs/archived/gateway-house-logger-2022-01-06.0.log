@@ -1,0 +1,29 @@
+2022-01-06 14:39:55,490 INFO org.springframework.boot.StartupInfoLogger [main] Starting GatewayHouseApplication using Java 11.0.12 on Desktop-RRM14 with PID 14088 (C:\wksp_riachuelo\GatewayHouse\target\classes started by rrm14 in C:\wksp_riachuelo\GatewayHouse)
+2022-01-06 14:39:55,493 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-06 14:39:55,494 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-01-06 14:39:56,551 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-01-06 14:39:56,572 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-01-06 14:39:56,574 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-01-06 14:39:56,575 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-06 14:39:56,760 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-01-06 14:39:56,761 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1212 ms
+2022-01-06 14:39:57,456 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2022-01-06 14:39:57,489 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2022-01-06 14:39:57,506 INFO org.springframework.boot.StartupInfoLogger [main] Started GatewayHouseApplication in 2.567 seconds (JVM running for 3.992)
+2022-01-06 14:40:14,641 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-06 14:40:14,643 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2022-01-06 14:40:14,647 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 3 ms
+2022-01-06 14:40:14,675 INFO com.riachuelo.house.services.CommissionSalesService [http-nio-8080-exec-2] Step 01 - Reader Commission Sales File
+2022-01-06 14:40:56,430 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(7)-127.0.0.1] Application shutdown requested.
+2022-01-06 14:40:59,977 INFO org.springframework.boot.StartupInfoLogger [main] Starting GatewayHouseApplication using Java 11.0.12 on Desktop-RRM14 with PID 18900 (C:\wksp_riachuelo\GatewayHouse\target\classes started by rrm14 in C:\wksp_riachuelo\GatewayHouse)
+2022-01-06 14:40:59,980 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-06 14:40:59,982 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-01-06 14:41:00,947 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-01-06 14:41:00,960 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-01-06 14:41:00,960 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-01-06 14:41:00,961 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-06 14:41:01,072 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-01-06 14:41:01,073 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1030 ms
+2022-01-06 14:41:01,441 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2022-01-06 14:41:01,461 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2022-01-06 14:41:01,471 INFO org.springframework.boot.StartupInfoLogger [main] Started GatewayHouseApplication in 2.02 seconds (JVM running for 3.502)
