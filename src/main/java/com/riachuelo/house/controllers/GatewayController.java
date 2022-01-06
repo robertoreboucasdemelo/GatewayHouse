@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.riachuelo.house.components.Inconsistency;
-import com.riachuelo.house.components.ItemError;
+import com.riachuelo.house.models.ItemError;
 import com.riachuelo.house.services.CommissionGoalsService;
 import com.riachuelo.house.services.CommissionSalesService;
 import com.riachuelo.house.services.GatewayService;
@@ -34,8 +34,7 @@ public class GatewayController {
 		gatewayService.loadEngineRules();
 		
 		for (ItemError item : inconsistency.getInconsistencies()) {
-			System.out.println("item id :" + item.getId());
-			System.out.println("item description :" + item.getDescription());
+			System.out.println("Inconsistency :" + item);
 		}
 	}
 

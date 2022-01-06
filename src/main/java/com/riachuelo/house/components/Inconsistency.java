@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import com.riachuelo.house.models.ItemError;
+
 @Component
 public class Inconsistency implements Serializable {
 
@@ -20,5 +22,12 @@ public class Inconsistency implements Serializable {
 	public void addInconsistency(ItemError itemError) {
 		inconsistencies.add(itemError);
 	}
+
+	@Override
+	public String toString() {
+		return "Inconsistency [inconsistencies=" + inconsistencies + "]";
+	}
+	
+	
 
 }
