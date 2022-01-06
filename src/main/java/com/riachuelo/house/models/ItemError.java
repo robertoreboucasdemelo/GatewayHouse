@@ -7,7 +7,7 @@ public class ItemError implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private final String file;
-	private final Long registration;
+	private final String registration;
 	private final String salesman;
 	private final String description;
 	
@@ -20,7 +20,7 @@ public class ItemError implements Serializable {
 	}
 	
 
-	public Long getRegistration() {
+	public String getRegistration() {
 		return registration;
 	}
 	public String getSalesman() {
@@ -43,7 +43,7 @@ public class ItemError implements Serializable {
 
 	public static class ItemErrorBuilder{		
 		private String file;
-		private Long registration;
+		private String registration;
 		private String salesman;
 		private String description;
 			
@@ -52,7 +52,7 @@ public class ItemError implements Serializable {
 			return this;
 		}
 		
-		public ItemErrorBuilder registration(Long registration) {
+		public ItemErrorBuilder registration(String registration) {
 			this.registration = registration;
 			return this;
 		}

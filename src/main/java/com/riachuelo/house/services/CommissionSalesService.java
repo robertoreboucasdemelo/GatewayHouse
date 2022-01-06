@@ -27,7 +27,7 @@ public class CommissionSalesService {
 	
 	@Value("${app.house.file.sale.path}")
     private String path;
-	private Long registration;
+	private String registration;
 	private String salesman;
 	
 	List<CommissionSales> list = new ArrayList<>();
@@ -60,7 +60,7 @@ public class CommissionSalesService {
 		String[] vector = line.split(";");
 		try {
 			
-			this.loadData(Long.parseLong(vector[2]),vector[3]);
+			this.loadData(vector[2],vector[3]);
 			
 			CommissionSales commissionSales = new CommissionSales.CommissionSalesBuilder()
 					.store(Long.parseLong(vector[0]))
@@ -77,7 +77,7 @@ public class CommissionSalesService {
 		}
 	}
 	
-	private void loadData(Long registration , String salesman) {
+	private void loadData(String registration , String salesman) {
 		this.registration = registration;
 		this.salesman = salesman; 
 	}
@@ -85,10 +85,10 @@ public class CommissionSalesService {
 	private void loadError(Inconsistency inconsistency) {
 		
 		ItemError error = new ItemError.ItemErrorBuilder()
-				.file(Constants.FILE_GOALS)
+				.file(Constants.FILE_SALES)
 				.registration(registration)
 				.salesman(salesman)
-				.description(Constants.ERROR_GOALS)
+				.description(Constants.ERROR_SALES)
 				.build();
 		
 		inconsistency.addInconsistency(error);

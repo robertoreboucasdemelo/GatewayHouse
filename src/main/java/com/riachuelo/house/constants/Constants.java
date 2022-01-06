@@ -13,5 +13,6 @@ public class Constants {
 	public static final String  FILE_GOALS = "Metas Comissionadas";
 	public static final String  ERROR_GOALS = "Dados das Metas Faltando ou Fora do Padrão";
 	public static final String  ERROR_SALES = "Dados das Vendas Faltando ou Fora do Padrão";
+	public static final String  SHEET       = "Inconsistencias";
 	
 }

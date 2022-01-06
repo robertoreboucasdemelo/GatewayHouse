@@ -27,7 +27,7 @@ public class CommissionGoalsService {
 	
 	@Value("${app.house.file.goal.path}")
     private String path;
-	private Long registration;
+	private String registration;
 	private String salesman;
 	List<CommissionGoals> list = new ArrayList<>();
 	
@@ -61,7 +61,7 @@ public class CommissionGoalsService {
 		String[] vector = line.split(";");
 		try {
 			
-			this.loadData(Long.parseLong(vector[2]),vector[3]);
+			this.loadData(vector[2],vector[3]);
 			
 			CommissionGoals commissionGoals = new CommissionGoals.CommissionGoalsBuilder()
 					.store(Long.parseLong(vector[0]))
@@ -80,7 +80,7 @@ public class CommissionGoalsService {
 		}
 	}
 	
-	private void loadData(Long registration , String salesman) {
+	private void loadData(String registration , String salesman) {
 		this.registration = registration;
 		this.salesman = salesman; 
 	}

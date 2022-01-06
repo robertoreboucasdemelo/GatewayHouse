@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.riachuelo.house.components.ExportExcel;
 import com.riachuelo.house.components.Inconsistency;
 import com.riachuelo.house.models.ItemError;
 import com.riachuelo.house.services.CommissionGoalsService;
@@ -27,6 +28,9 @@ public class GatewayController {
 	@Autowired
 	private Inconsistency inconsistency;
 	
+	@Autowired
+	private ExportExcel exportExcel;
+	
 	@PostMapping
 	public void load(){	
 		commissionSalesService.read(inconsistency);	
@@ -36,6 +40,8 @@ public class GatewayController {
 		for (ItemError item : inconsistency.getInconsistencies()) {
 			System.out.println("Inconsistency :" + item);
 		}
+		
+		exportExcel.generate(inconsistency);
 	}
 
 }
