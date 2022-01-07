@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,9 @@ public class CommissionSalesService {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CommissionSalesService.class);
 	
+	@Autowired
+	private Inconsistency inconsistency;
+	
 	@Value("${app.house.file.sale.path}")
     private String path;
 	private String registration;
@@ -32,7 +36,7 @@ public class CommissionSalesService {
 	
 	List<CommissionSales> list = new ArrayList<>();
 	
-	public List<CommissionSales> read(Inconsistency inconsistency) {
+	public List<CommissionSales> read() {
 		
 		LOGGER.info(Constants.STEP_READER_SALES);
 		
@@ -42,7 +46,7 @@ public class CommissionSalesService {
 			line = br.readLine();
 			
 			while (line != null) {
-				this.loadLine(line, inconsistency);
+				this.loadLine(line);
 				line = br.readLine();
 			}
 		} catch (FileNotFoundException e) {
@@ -55,7 +59,7 @@ public class CommissionSalesService {
 		
 	}
 	
-	private void loadLine(String line, Inconsistency inconsistency) {
+	private void loadLine(String line) {
 		
 		String[] vector = line.split(";");
 		try {
@@ -73,7 +77,7 @@ public class CommissionSalesService {
 
 			list.add(commissionSales);
 		} catch (NumberFormatException | ParseException e) {
-			this.loadError(inconsistency);
+			this.loadError();
 		}
 	}
 	
@@ -82,7 +86,7 @@ public class CommissionSalesService {
 		this.salesman = salesman; 
 	}
 	
-	private void loadError(Inconsistency inconsistency) {
+	private void loadError() {
 		
 		ItemError error = new ItemError.ItemErrorBuilder()
 				.file(Constants.FILE_SALES)

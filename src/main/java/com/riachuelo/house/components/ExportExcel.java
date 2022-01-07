@@ -17,6 +17,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.VerticalAlignment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +30,9 @@ public class ExportExcel {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(ExportExcel.class);
 	
+	@Autowired
+	private Inconsistency inconsistency;
+	
 	@Value("${app.house.file.output.path}")
     private String path;
 	HSSFWorkbook workbook = new HSSFWorkbook();
@@ -40,13 +44,13 @@ public class ExportExcel {
 	int rownum  = 0;
 	int cellnum = 0;
 	
-	public void generate(Inconsistency inconsistency) {	
+	public void generate() {	
 		
 		LOGGER.info(Constants.STEP_CREATE_FILE);
 		
 		this.config();
 		this.loadHeader();
-		this.loadItens(inconsistency);
+		this.loadItens();
 		this.writeFile();
 	}
 	
@@ -93,7 +97,7 @@ public class ExportExcel {
 		cell.setCellValue(Constants.LABEL_ERROR);		
 	}
 	
-	public void loadItens(Inconsistency inconsistency) {
+	public void loadItens() {
 		for (ItemError error : inconsistency.getInconsistencies()) {
 			row = sheet.createRow(rownum++);
 			cellnum = 0;
