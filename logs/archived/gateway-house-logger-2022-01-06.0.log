@@ -482,3 +482,5 @@
 2022-01-06 22:16:33,554 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-01-06 22:16:33,555 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
 2022-01-06 22:16:33,558 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2022-01-06 22:16:33,597 INFO com.riachuelo.house.services.CommissionSalesService [http-nio-8080-exec-1] Step 01 - Reader Commission Sales File
+2022-01-06 22:16:33,622 INFO com.riachuelo.house.services.CommissionGoalsService [http-nio-8080-exec-1] Step 02 - Reader Commission Goals File

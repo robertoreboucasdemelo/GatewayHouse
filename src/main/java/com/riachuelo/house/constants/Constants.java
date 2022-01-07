@@ -20,5 +20,7 @@ public class Constants {
 	public static final String  LABEL_REGISTRATION = "Matrícula";
 	public static final String  LABEL_SALESMAN     = "Vendedor";
 	public static final String  LABEL_ERROR        = "Inconsistência";
+	public static final String  OUTPUT_FILE_NAME   = "inconsistencias-casa-";
+	public static final String  OUTPUT_EXTENSION   = ".xls";
 	
 }

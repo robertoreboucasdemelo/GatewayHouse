@@ -10,6 +10,7 @@ import com.riachuelo.house.components.Inconsistency;
 import com.riachuelo.house.services.CommissionGoalsService;
 import com.riachuelo.house.services.CommissionSalesService;
 import com.riachuelo.house.services.GatewayService;
+import com.riachuelo.house.utils.Util;
 
 @RestController
 @RequestMapping(value = "/house")

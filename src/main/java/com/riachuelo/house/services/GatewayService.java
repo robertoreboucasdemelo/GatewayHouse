@@ -41,7 +41,7 @@ public class GatewayService {
 		engine.setVariaveis(request);
 		
 		try {
-			Util.ativaInterceptor(restTemplate, false);
+			Util.activeInterceptor(restTemplate, false);
 			response = restTemplate.postForObject(url_regracalculocomissao, engine, Response.class);
 		}catch (Exception e) {
 			System.out.println("Error " + e);

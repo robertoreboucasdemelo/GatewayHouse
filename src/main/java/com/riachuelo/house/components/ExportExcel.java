@@ -24,6 +24,7 @@ import org.springframework.stereotype.Component;
 import com.riachuelo.house.constants.Constants;
 import com.riachuelo.house.exceptions.ResourceNotFoundException;
 import com.riachuelo.house.models.ItemError;
+import com.riachuelo.house.utils.Util;
 
 @Component
 public class ExportExcel {
@@ -123,7 +124,7 @@ public class ExportExcel {
 	
 	public void writeFile() {
 		try {
-			FileOutputStream out = new FileOutputStream(new File(path));
+			FileOutputStream out = new FileOutputStream(new File(path.concat(Util.recoveryFileName())));
 			workbook.write(out);
 			out.close();
 			workbook.close();
