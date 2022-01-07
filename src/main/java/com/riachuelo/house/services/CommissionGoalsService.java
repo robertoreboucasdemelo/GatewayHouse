@@ -31,14 +31,12 @@ public class CommissionGoalsService {
 	
 	@Value("${app.house.file.goal.path}")
     private String path;
-	private String registration;
-	private String salesman;
-	List<CommissionGoals> list = new ArrayList<>();
-	
 	
 	public List<CommissionGoals> read() {
 		
 		LOGGER.info(Constants.STEP_READER_GOALS);
+		
+		List<CommissionGoals> list = new ArrayList<>();
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path))){
 			
@@ -47,7 +45,7 @@ public class CommissionGoalsService {
 			line = br.readLine();
 			
 			while(line != null) {				
-				this.loadLine(line);		
+				list = loadLine(line,list);		
 				line = br.readLine();
 			}
 		} catch (FileNotFoundException e) {
@@ -55,17 +53,15 @@ public class CommissionGoalsService {
 		} catch (IOException e) {
 			throw new ResourceNotFoundException(Constants.IO_ERROR);
 		}
-			
+		
 		return list;
 		
 	}
 	
-	private void loadLine(String line) {
+	private List<CommissionGoals> loadLine(String line, List<CommissionGoals> list) {
 		
 		String[] vector = line.split(";");
 		try {
-			
-			this.loadData(vector[2],vector[3]);
 			
 			CommissionGoals commissionGoals = new CommissionGoals.CommissionGoalsBuilder()
 					.store(Long.parseLong(vector[0]))
@@ -80,16 +76,13 @@ public class CommissionGoalsService {
 			
 			list.add(commissionGoals);
 		} catch (NumberFormatException | ParseException e) {
-			this.loadError();
+			this.loadError(vector[2],vector[3]);
 		}
+		
+		return list;
 	}
 	
-	private void loadData(String registration , String salesman) {
-		this.registration = registration;
-		this.salesman = salesman; 
-	}
-	
-	private void loadError() {
+	private void loadError(String registration , String salesman) {
 		
 		ItemError error = new ItemError.ItemErrorBuilder()
 				.file(Constants.FILE_GOALS)

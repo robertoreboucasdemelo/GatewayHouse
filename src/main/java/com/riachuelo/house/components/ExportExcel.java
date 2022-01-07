@@ -36,18 +36,23 @@ public class ExportExcel {
 	
 	@Value("${app.house.file.output.path}")
     private String path;
-	HSSFWorkbook workbook = new HSSFWorkbook();
-	HSSFSheet sheet = workbook.createSheet(Constants.SHEET);
+	HSSFWorkbook workbook = null;
+	HSSFSheet sheet = null;
 
 	Cell cell;
 	Row  row;
 	
-	int rownum  = 0;
-	int cellnum = 0;
+	int rownum;
+	int cellnum;
 	
 	public void generate() {	
 		
 		LOGGER.info(Constants.STEP_CREATE_FILE);
+		
+		workbook = new HSSFWorkbook();
+		sheet    = workbook.createSheet(Constants.SHEET);
+		rownum   = 0;
+		cellnum  = 0;
 		
 		this.config();
 		this.loadHeader();

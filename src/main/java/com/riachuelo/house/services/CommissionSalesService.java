@@ -31,14 +31,12 @@ public class CommissionSalesService {
 	
 	@Value("${app.house.file.sale.path}")
     private String path;
-	private String registration;
-	private String salesman;
-	
-	List<CommissionSales> list = new ArrayList<>();
 	
 	public List<CommissionSales> read() {
 		
 		LOGGER.info(Constants.STEP_READER_SALES);
+		
+		List<CommissionSales> list = new ArrayList<>();
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path))){
 			
@@ -46,7 +44,7 @@ public class CommissionSalesService {
 			line = br.readLine();
 			
 			while (line != null) {
-				this.loadLine(line);
+				list = loadLine(line, list);
 				line = br.readLine();
 			}
 		} catch (FileNotFoundException e) {
@@ -59,12 +57,10 @@ public class CommissionSalesService {
 		
 	}
 	
-	private void loadLine(String line) {
+	private List<CommissionSales> loadLine(String line, List<CommissionSales> list) {
 		
 		String[] vector = line.split(";");
 		try {
-			
-			this.loadData(vector[2],vector[3]);
 			
 			CommissionSales commissionSales = new CommissionSales.CommissionSalesBuilder()
 					.store(Long.parseLong(vector[0]))
@@ -77,16 +73,13 @@ public class CommissionSalesService {
 
 			list.add(commissionSales);
 		} catch (NumberFormatException | ParseException e) {
-			this.loadError();
+			this.loadError(vector[2],vector[3]);
 		}
+		
+		return list;
 	}
 	
-	private void loadData(String registration , String salesman) {
-		this.registration = registration;
-		this.salesman = salesman; 
-	}
-	
-	private void loadError() {
+	private void loadError(String registration , String salesman) {
 		
 		ItemError error = new ItemError.ItemErrorBuilder()
 				.file(Constants.FILE_SALES)
