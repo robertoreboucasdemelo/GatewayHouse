@@ -443,3 +443,17 @@ java.lang.NullPointerException: null
 2022-01-07 15:48:36,458 INFO com.riachuelo.house.services.CommissionGoalsService [http-nio-8080-exec-3] Step 02 - Reader Commission Goals File
 2022-01-07 15:48:36,520 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-3] Step 04 - Creating Inconsistency Output File
 2022-01-07 15:48:36,525 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-3] Step 05 - File Created Successfully
+2022-01-07 15:48:59,774 INFO com.riachuelo.house.services.CommissionSalesService [http-nio-8080-exec-4] Step 01 - Reader Commission Sales File
+2022-01-07 15:48:59,784 INFO com.riachuelo.house.services.CommissionGoalsService [http-nio-8080-exec-4] Step 02 - Reader Commission Goals File
+2022-01-07 15:48:59,942 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-4] Step 04 - Creating Inconsistency Output File
+2022-01-07 15:48:59,949 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-4] Step 05 - File Created Successfully
+2022-01-07 15:52:57,213 INFO com.riachuelo.house.services.CommissionSalesService [http-nio-8080-exec-7] Step 01 - Reader Commission Sales File
+2022-01-07 15:52:57,219 INFO com.riachuelo.house.services.CommissionGoalsService [http-nio-8080-exec-7] Step 02 - Reader Commission Goals File
+2022-01-07 15:52:57,387 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-7] Step 04 - Creating Inconsistency Output File
+2022-01-07 15:52:57,392 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-7] Step 05 - File Created Successfully
+2022-01-07 15:53:08,510 INFO com.riachuelo.house.services.CommissionSalesService [http-nio-8080-exec-8] Step 01 - Reader Commission Sales File
+2022-01-07 15:53:08,517 INFO com.riachuelo.house.services.CommissionGoalsService [http-nio-8080-exec-8] Step 02 - Reader Commission Goals File
+2022-01-07 15:53:08,578 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-8] Step 04 - Creating Inconsistency Output File
+2022-01-07 15:53:08,581 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-8] Step 05 - File Created Successfully
+2022-01-07 15:53:31,413 INFO com.riachuelo.house.services.CommissionSalesService [http-nio-8080-exec-9] Step 01 - Reader Commission Sales File
+2022-01-07 15:53:31,419 INFO com.riachuelo.house.services.CommissionGoalsService [http-nio-8080-exec-9] Step 02 - Reader Commission Goals File

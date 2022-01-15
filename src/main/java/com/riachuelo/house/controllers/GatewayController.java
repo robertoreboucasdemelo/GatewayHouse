@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.riachuelo.house.components.Document;
 import com.riachuelo.house.components.ExportExcel;
 import com.riachuelo.house.components.Inconsistency;
+import com.riachuelo.house.models.Commission;
 import com.riachuelo.house.models.CommissionGoals;
 import com.riachuelo.house.models.CommissionSales;
 import com.riachuelo.house.services.CommissionGoalsService;
@@ -47,10 +48,14 @@ public class GatewayController {
 		List<CommissionSales> listSales = commissionSalesService.read();
 		List<CommissionGoals> listGoals = commissionGoalsService.read();
 
-		gatewayService.loadEngineRules();
+		List<Commission> listCommission = gatewayService.loadEngineRules(listGoals);
 
 		if (!inconsistency.getInconsistencies().isEmpty()) {
 			exportExcel.generate();
+		}
+		
+		for (Commission commission : listCommission) {
+			System.out.println(commission);
 		}
 
 		document.setQuantityReadSales(listSales.size());

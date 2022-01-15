@@ -1,0 +1,50 @@
+2022-01-13 15:19:52,214 INFO org.springframework.boot.StartupInfoLogger [main] Starting GatewayHouseApplication using Java 11.0.12 on Desktop-RRM14 with PID 16736 (C:\wksp_riachuelo\GatewayHouse\target\classes started by rrm14 in C:\wksp_riachuelo\GatewayHouse)
+2022-01-13 15:19:52,219 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-13 15:19:52,220 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-01-13 15:19:54,219 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-01-13 15:19:54,234 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-01-13 15:19:54,234 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-01-13 15:19:54,235 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-13 15:19:54,367 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-01-13 15:19:54,368 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1898 ms
+2022-01-13 15:19:54,855 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2022-01-13 15:19:54,892 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2022-01-13 15:19:54,909 INFO org.springframework.boot.StartupInfoLogger [main] Started GatewayHouseApplication in 3.471 seconds (JVM running for 15.148)
+2022-01-13 15:20:13,181 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-13 15:20:13,183 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2022-01-13 15:20:13,184 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2022-01-13 15:20:13,214 INFO com.riachuelo.house.services.CommissionSalesService [http-nio-8080-exec-1] Step 01 - Reader Commission Sales File
+2022-01-13 15:20:13,237 INFO com.riachuelo.house.services.CommissionGoalsService [http-nio-8080-exec-1] Step 02 - Reader Commission Goals File
+2022-01-13 15:21:09,288 INFO com.riachuelo.house.services.CommissionSalesService [http-nio-8080-exec-3] Step 01 - Reader Commission Sales File
+2022-01-13 15:21:09,309 INFO com.riachuelo.house.services.CommissionGoalsService [http-nio-8080-exec-3] Step 02 - Reader Commission Goals File
+2022-01-13 15:21:09,518 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-3] Step 04 - Creating Inconsistency Output File
+2022-01-13 15:21:09,872 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-3] Step 05 - File Created Successfully
+2022-01-13 15:33:06,130 INFO com.riachuelo.house.services.CommissionSalesService [http-nio-8080-exec-6] Step 01 - Reader Commission Sales File
+2022-01-13 15:33:06,135 INFO com.riachuelo.house.services.CommissionGoalsService [http-nio-8080-exec-6] Step 02 - Reader Commission Goals File
+2022-01-13 15:33:06,308 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-6] Step 04 - Creating Inconsistency Output File
+2022-01-13 15:33:06,312 INFO com.riachuelo.house.exceptions.ResourceNotFoundException [http-nio-8080-exec-6] File Not Found
+2022-01-13 15:33:14,023 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(20)-127.0.0.1] Application shutdown requested.
+2022-01-13 15:33:18,317 INFO org.springframework.boot.StartupInfoLogger [main] Starting GatewayHouseApplication using Java 11.0.12 on Desktop-RRM14 with PID 7968 (C:\wksp_riachuelo\GatewayHouse\target\classes started by rrm14 in C:\wksp_riachuelo\GatewayHouse)
+2022-01-13 15:33:18,325 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-01-13 15:33:18,326 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2022-01-13 15:33:19,502 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2022-01-13 15:33:19,521 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing ProtocolHandler ["http-nio-8080"]
+2022-01-13 15:33:19,522 INFO org.apache.juli.logging.DirectJDKLog [main] Starting service [Tomcat]
+2022-01-13 15:33:19,522 INFO org.apache.juli.logging.DirectJDKLog [main] Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-13 15:33:19,695 INFO org.apache.juli.logging.DirectJDKLog [main] Initializing Spring embedded WebApplicationContext
+2022-01-13 15:33:19,696 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1303 ms
+2022-01-13 15:33:20,181 INFO org.apache.juli.logging.DirectJDKLog [main] Starting ProtocolHandler ["http-nio-8080"]
+2022-01-13 15:33:20,202 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2022-01-13 15:33:20,212 INFO org.springframework.boot.StartupInfoLogger [main] Started GatewayHouseApplication in 2.701 seconds (JVM running for 4.314)
+2022-01-13 15:34:26,976 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-13 15:34:26,977 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2022-01-13 15:34:26,979 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 2 ms
+2022-01-13 15:34:27,017 INFO com.riachuelo.house.services.CommissionSalesService [http-nio-8080-exec-1] Step 01 - Reader Commission Sales File
+2022-01-13 15:34:27,043 INFO com.riachuelo.house.services.CommissionGoalsService [http-nio-8080-exec-1] Step 02 - Reader Commission Goals File
+2022-01-13 15:34:27,374 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-1] Step 04 - Creating Inconsistency Output File
+2022-01-13 15:34:27,530 INFO com.riachuelo.house.exceptions.ResourceNotFoundException [http-nio-8080-exec-1] File Not Found
+2022-01-13 15:53:09,281 INFO com.riachuelo.house.services.CommissionSalesService [http-nio-8080-exec-5] Step 01 - Reader Commission Sales File
+2022-01-13 15:53:09,300 INFO com.riachuelo.house.services.CommissionGoalsService [http-nio-8080-exec-5] Step 02 - Reader Commission Goals File
+2022-01-13 15:53:09,490 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-5] Step 04 - Creating Inconsistency Output File
+2022-01-13 15:53:09,534 INFO com.riachuelo.house.components.ExportExcel [http-nio-8080-exec-5] Step 05 - File Created Successfully
+2022-01-13 16:05:57,524 INFO org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin [RMI TCP Connection(40)-127.0.0.1] Application shutdown requested.

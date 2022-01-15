@@ -4,6 +4,7 @@ public class Constants {
 
 	public static final String  RESOURCE_NOT_FOUND = "Resource Not Found";
 	public static final String  FILE_NOT_FOUND     = "File Not Found";
+	public static final String  REQUEST_ERROR      = "Error To Call Request Method";
 	public static final String  IO_ERROR           = "IO Error";
 	public static final String  MONETARY_SYMBOL    = "R$";
 	public static final String  PATH               = "";
@@ -22,5 +23,6 @@ public class Constants {
 	public static final String  LABEL_ERROR        = "Inconsistência";
 	public static final String  OUTPUT_FILE_NAME   = "inconsistencias-casa-";
 	public static final String  OUTPUT_EXTENSION   = ".xls";
+	public static final String  DROOLS_COMMISSION   = "Comissao";
 	
 }

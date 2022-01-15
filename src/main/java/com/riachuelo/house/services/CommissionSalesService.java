@@ -26,6 +26,8 @@ public class CommissionSalesService {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CommissionSalesService.class);
 	
+	private List<CommissionSales> list = null;
+	
 	@Autowired
 	private Inconsistency inconsistency;
 	
@@ -36,7 +38,7 @@ public class CommissionSalesService {
 		
 		LOGGER.info(Constants.STEP_READER_SALES);
 		
-		List<CommissionSales> list = new ArrayList<>();
+		list = new ArrayList<>();
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path))){
 			
@@ -44,7 +46,7 @@ public class CommissionSalesService {
 			line = br.readLine();
 			
 			while (line != null) {
-				list = loadLine(line, list);
+				loadLine(line);
 				line = br.readLine();
 			}
 		} catch (FileNotFoundException e) {
@@ -57,7 +59,7 @@ public class CommissionSalesService {
 		
 	}
 	
-	private List<CommissionSales> loadLine(String line, List<CommissionSales> list) {
+	private void loadLine(String line) {
 		
 		String[] vector = line.split(";");
 		try {
@@ -75,8 +77,6 @@ public class CommissionSalesService {
 		} catch (NumberFormatException | ParseException e) {
 			this.loadError(vector[2],vector[3]);
 		}
-		
-		return list;
 	}
 	
 	private void loadError(String registration , String salesman) {

@@ -26,6 +26,8 @@ public class CommissionGoalsService {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CommissionGoalsService.class);
 	
+	private List<CommissionGoals> list = null;
+	
 	@Autowired
 	private Inconsistency inconsistency;
 	
@@ -36,7 +38,7 @@ public class CommissionGoalsService {
 		
 		LOGGER.info(Constants.STEP_READER_GOALS);
 		
-		List<CommissionGoals> list = new ArrayList<>();
+		list = new ArrayList<>();
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path))){
 			
@@ -45,7 +47,7 @@ public class CommissionGoalsService {
 			line = br.readLine();
 			
 			while(line != null) {				
-				list = loadLine(line,list);		
+				loadLine(line);		
 				line = br.readLine();
 			}
 		} catch (FileNotFoundException e) {
@@ -58,7 +60,7 @@ public class CommissionGoalsService {
 		
 	}
 	
-	private List<CommissionGoals> loadLine(String line, List<CommissionGoals> list) {
+	private void loadLine(String line) {
 		
 		String[] vector = line.split(";");
 		try {
@@ -79,7 +81,6 @@ public class CommissionGoalsService {
 			this.loadError(vector[2],vector[3]);
 		}
 		
-		return list;
 	}
 	
 	private void loadError(String registration , String salesman) {
