@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
-
 import com.riachuelo.house.models.ItemError;
 
 @Component
@@ -26,6 +25,17 @@ public class Inconsistency implements Serializable {
 	@Override
 	public String toString() {
 		return "Inconsistency [inconsistencies=" + inconsistencies + "]";
+	}
+	
+	public ItemError loadError(String registration, String salesman, String file, String description) {
+
+		return new ItemError.ItemErrorBuilder()
+				.file(file)
+				.registration(registration)
+				.salesman(salesman)
+				.description(description)
+				.build();
+
 	}
 	
 	

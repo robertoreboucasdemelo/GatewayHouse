@@ -18,7 +18,6 @@ import com.riachuelo.house.components.Inconsistency;
 import com.riachuelo.house.constants.Constants;
 import com.riachuelo.house.exceptions.ResourceNotFoundException;
 import com.riachuelo.house.models.CommissionGoals;
-import com.riachuelo.house.models.ItemError;
 import com.riachuelo.house.utils.Util;
 
 @Service
@@ -78,21 +77,10 @@ public class CommissionGoalsService {
 			
 			list.add(commissionGoals);
 		} catch (NumberFormatException | ParseException e) {
-			this.loadError(vector[2],vector[3]);
+			inconsistency.addInconsistency(
+					inconsistency.loadError(vector[2], vector[3], Constants.FILE_GOALS, Constants.ERROR_GOALS));
 		}
 		
 	}
 	
-	private void loadError(String registration , String salesman) {
-		
-		ItemError error = new ItemError.ItemErrorBuilder()
-				.file(Constants.FILE_GOALS)
-				.registration(registration)
-				.salesman(salesman)
-				.description(Constants.ERROR_GOALS)
-				.build();
-		
-		inconsistency.addInconsistency(error);
-	}
-
 }

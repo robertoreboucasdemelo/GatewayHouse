@@ -14,8 +14,10 @@ public class Constants {
 	public static final String  STEP_SUCCESS_FILE  = "Step 05 - File Created Successfully";
 	public static final String  FILE_SALES         = "Vendas Comissionadas";
 	public static final String  FILE_GOALS         = "Metas Comissionadas";
+	public static final String  RULES_ENGINE       = "Cálculo Motor";
 	public static final String  ERROR_GOALS        = "Dados das Metas Faltando ou Fora do Padrão";
 	public static final String  ERROR_SALES        = "Dados das Vendas Faltando ou Fora do Padrão";
+	public static final String  ERROR_RULES        = "Erro ao Efetuar o Cálculo de Comissões";
 	public static final String  SHEET              = "Inconsistencias";
 	public static final String  LABEL_FILE         = "Arquivo";
 	public static final String  LABEL_REGISTRATION = "Matrícula";

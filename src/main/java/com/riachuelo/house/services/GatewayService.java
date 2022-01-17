@@ -8,16 +8,17 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.riachuelo.house.components.Inconsistency;
 import com.riachuelo.house.constants.Constants;
 import com.riachuelo.house.drools.RequestCalculusEngine;
 import com.riachuelo.house.drools.RequestRule;
 import com.riachuelo.house.drools.Response;
 import com.riachuelo.house.enums.RequestType;
-import com.riachuelo.house.exceptions.ResourceNotFoundException;
 import com.riachuelo.house.models.Commission;
 import com.riachuelo.house.models.CommissionGoals;
 import com.riachuelo.house.utils.Util;
@@ -28,19 +29,21 @@ public class GatewayService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(GatewayService.class);
 	
 	@Value("${app.brms.regracalculocomissao}")
-	private String url_regracalculocomissao;
+	private String regracalculocomissao;
 
 	@Value("${app.brms.regraelegibilidadecasa}")
-	private String url_regraelegibilidadecasa;
+	private String regraelegibilidadecasa;
 	
-	private List<Commission> list = null;
+	@Autowired
+	private Inconsistency inconsistency;
 	
 	public List<Commission> loadEngineRules(List<CommissionGoals> listGoals) {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		RequestRule<RequestCalculusEngine> engine = new RequestRule<>();	
 		AtomicReference<Double> commissionAmount = new AtomicReference<>(0d);
-		list = new ArrayList<>();
+		
+		List<Commission> list = new ArrayList<>();
 		
 		listGoals.forEach(goals ->{
 			
@@ -60,20 +63,20 @@ public class GatewayService {
 			
 			try {
 				Util.activeInterceptor(restTemplate, false);
-				response = restTemplate.postForObject(url_regracalculocomissao, engine, Response.class);
+				response = restTemplate.postForObject(regracalculocomissao, engine, Response.class);
 			}catch (Exception e) {
 				LOGGER.error(e.getMessage());
-				throw new ResourceNotFoundException(Constants.REQUEST_ERROR);
+				inconsistency.addInconsistency(inconsistency.loadError(goals.getRegistration().toString(),
+						goals.getSalesman(), Constants.RULES_ENGINE, Constants.ERROR_RULES));
 			}
 			
-			if (response != null) {
-				if (response.getCalculos() != null && !response.getCalculos().isEmpty()) {
-
+			if (response != null && response.getCalculos() != null && !response.getCalculos().isEmpty()) {
+			
 					response.getCalculos().get(0).getFormulas().stream()
-							.filter(formula -> Constants.DROOLS_COMMISSION.equals(formula.getFormula())).forEach(formula -> {
-								commissionAmount.set(Double.valueOf(formula.getResultado()));
-							});
-					
+							.filter(formula -> Constants.DROOLS_COMMISSION.equals(formula.getFormula())).forEach(formula -> 
+								commissionAmount.set(Double.valueOf(formula.getResultado()))
+							);
+				try {
 					Commission commission = new Commission.CommissionBuilder()
 							.registration(goals.getRegistration())
 							.salesman(goals.getSalesman())
@@ -82,12 +85,17 @@ public class GatewayService {
 							.individualSale(goals.getIndividualSale())
 							.totalGoal(goals.getTotalGoal())
 							.totalSale(goals.getTotalSale())
-							.commissionAmount(BigDecimal.valueOf(commissionAmount.get())
-									.setScale(2,RoundingMode.HALF_UP).doubleValue())
+							.commissionAmount(BigDecimal
+									.valueOf(commissionAmount.get()).setScale(2, RoundingMode.HALF_UP).doubleValue())
 							.build();
 					list.add(commission);
+				} catch (Exception e) {
+					LOGGER.error(e.getMessage());
+					inconsistency.addInconsistency(inconsistency.loadError(goals.getRegistration().toString(),
+							goals.getSalesman(), Constants.RULES_ENGINE, Constants.ERROR_RULES));
 				}
-			}	
+				
+			}
 		});
 		
 		return list;

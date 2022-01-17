@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,7 +41,11 @@ public class GatewayController {
 	@Autowired
 	private Document document;
 	
+	// This Schedule Cron is just a functionality test
+	// After a real parameters will be necessary to change this schedule FixedRate to Cron
+	
 	@PostMapping
+	@Scheduled(fixedRate = 10000L)
 	public ResponseEntity<Document> load(){	
 		
 		inconsistency.getInconsistencies().clear();
